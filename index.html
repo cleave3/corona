@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Elijah Enuem-Udogu" />
+    <meta name="description" content="An application that calculates the estimated impact of COVID-19 on a certain location within a given period of time" />
+    <meta name="keywords" content="COVID-19, coronavirus" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      rel="prefetch"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>COVID-19 Estimator</title>
+  </head>
+  <body class="bg-light">
+    <nav class="navbar navbar-expand navbar-light bg-info">
+      <div class="nav navbar-nav">
+        <h5 class="text-light">COVID-19 ESTIMATOR</h5>
+      </div>
+    </nav>
+    <div class="container-fluid mt-5">
+      <div class="resultmodal hidden">
+        <div class="modal-dialog w-100" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Estimate</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div id="result-container"></div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 mt-2 d-flex flex justify-content-center align-self-center text-light text-center">
+          <h3 class="display-3">COVID-19 Impact Estimator</h3>
+        </div>
+        <div class="col-md-6 my-2">
+          <h6 class="text-center text-white">
+            Complete form to estimate the impact of COVID-19 in your community
+          </h6>
+          <div class="d-flex flex justify-content-center align-self-center text-light">
+            <form class="card bg-dark shadow">
+              <div class="card-body">
+                <div class="form-group">
+                  <label for="population"><strong class="required">* </strong>What is your community population?</label>
+                  <input id="population" data-population class="form-control" type="number" placeholder="For example, 100000" required />
+                </div>
+                <div class="form-group">
+                  <label for="time-to-elapse"><strong class="required">* </strong>Enter the time projection for your estimation</label>
+                  <div class="row">
+                    <div class="col-6">
+                      <input id="time-to-elapse" data-time-to-elapse class="form-control" type="number" placeholder="For example, 30" required />
+                    </div>
+                    <div class="col-6">
+                      <label for="period-type" class="sr-only"><strong class="required">* </strong>Days, months, or years?</label>
+                      <select id="period-type" data-period-type class="form-control" required>
+                        <option value="days">Days</option>
+                        <option value="weeks">Weeks</option>
+                        <option value="months">Months</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="reported-cases"><strong class="required">* </strong>How many cases have been reported so far?</label>
+                  <input id="reported-cases" data-reported-cases class="form-control" type="number" placeholder="For example, 20000" required />
+                </div>
+                <div class="form-group">
+                  <label for="total-hospital-beds"><strong class="required">* </strong>How many hospital beds does the community have?</label>
+                  <input id="total-hospital-beds" data-total-hospital-beds class="form-control" type="number" placeholder="For example, 30000" required />
+                </div>
+                <button type="submit" id="calcbtn" class="btn btn-block btn-info">
+                  Calculate
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/estimator.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
